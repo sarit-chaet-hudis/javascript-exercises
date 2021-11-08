@@ -5,11 +5,7 @@ function dateString() {
   let dayNum = d.getUTCDate();
   let year = d.toLocaleDateString("en-US", { year: "numeric" });
 
-  return (
-    "Today is " + weekDay + " the " + dayNum + " of " + month + " , " + year
-  );
+  return `Today is ${weekDay} the ${dayNum} of ${month} , ${year}`;
 }
 
 console.log(dateString());
-
-
