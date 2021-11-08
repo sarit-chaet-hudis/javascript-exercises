@@ -2,13 +2,13 @@ function scoreToGrade(score) {
   switch (true) {
     case score < 65:
       return "F";
-    case score <= 69 && score >= 65:
+    case score < 70 :
       return "D";
-    case score < 80 && score >= 70:
+    case score < 80 :
       return "C";
-    case score < 90 && score >= 80:
+    case score < 90 :
       return "B";
-    case score >= 90:
+    default:
       return "A";
   }
 }
