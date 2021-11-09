@@ -9,6 +9,7 @@ function whoWon() {
   const avgMary = average(mary);
 
   switch (true) {
+    //   check for single winner
     case avgJhon > avgMike && avgJhon > avgMary:
       console.log("Jhon is the winner!");
       break;
@@ -18,6 +19,8 @@ function whoWon() {
     case avgMary > avgJhon && avgMary > avgMike:
       console.log("Mary is the winner!");
       break;
+
+      //no single winner - check for draws
     case avgJhon > avgMike && avgMary > avgMike:
       console.log("Jhon and Mary are the winners!");
       break;
@@ -27,6 +30,7 @@ function whoWon() {
     case avgMary > avgJhon && avgMike > avgJhon:
       console.log("Mary and Mike are the winners!");
       break;
+      //is there a draw between everyone?
     case avgJhon == avgMary && avgMike == avgMary:
       console.log("everyone's a winner!!!");
       break;
