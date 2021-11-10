@@ -1,12 +1,5 @@
 const array = ["Hello", "Good Day", "Your Welcome", "hotdog", "hamburgers"];
 
-const addProperty = (obj, k, v) => {
-  return {
-    ...obj,
-    [k]: v,
-  };
-};
-
 function countTheLetters(arr) {
   const strArray = array.join("").replace(/\s+/g, "");
   const resultObject = {};
