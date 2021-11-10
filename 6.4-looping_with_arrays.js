@@ -8,9 +8,9 @@ function percentageOfWorld1 (pop) {
 
 function populationPercentages (populations) {
     const percentages = [];
-    for (let population of populations) {
-        percentages.push(percentageOfWorld1(population));
-    }
+    populations.forEach(element => {
+        percentages.push(percentageOfWorld1(element));
+    });
     return percentages;
 }
 
