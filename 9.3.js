@@ -3,6 +3,8 @@ const food = ["Noodle", "Pasta", "Ice-cream", "Meat",
 const food1 = ["Fries", "Ice-cream", "Pizza", "Olives",
 "Hamburgers"];
  
+
+function compareFood (arr, arr2) {
 const similarFood = [];
 
 for (let foodItem of food) {
@@ -12,5 +14,7 @@ for (let foodItem of food) {
         }
     }
 }
+return similarFood.length === 0 ? false : similarFood;
+}
 
-console.log(similarFood);
+console.log(compareFood(food,food1));
