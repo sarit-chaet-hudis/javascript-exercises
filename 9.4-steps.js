@@ -1,7 +1,15 @@
 function steps(n) {
-    for (let i = 1; i <= n; i++) {
-        console.log("#".repeat(i)+" ".repeat(n-i));
+  let row = [];
+  for (let floor = 1; floor <= n; floor++) {
+    for (let i = 1; i <= floor; i++) {
+      row.push("#");
     }
+    for (let i = 0; i <= n - floor -1 ; i++) {
+      row.push(" ");
+    }
+    row.push("\n");
+  }
+  return row.join("");
 }
 
-steps(4);
+console.log(steps(4));
