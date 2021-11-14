@@ -8,7 +8,7 @@ function print(str) {
   console.log(str);
 }
 
-function printRose(str) {
+function rose(str) {
   return str + " @}---`---";
 }
 
@@ -23,7 +23,7 @@ function kebab(str) {
 }
 
 firstWordUpperCase("hi there mate whats up?", kebab);
-firstWordUpperCase("hello gorgeous", printRose);
+firstWordUpperCase("hello gorgeous", rose);
 
 function decorateText(str, func) {
   return func(str);
@@ -32,3 +32,5 @@ function decorateText(str, func) {
 const stars = (str) => "✪✪✪ " + str + " ✪✪✪";
 
 console.log(decorateText("Sarit", stars));
+console.log(decorateText("Sarit", rose));
+
