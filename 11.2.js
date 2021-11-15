@@ -42,5 +42,28 @@ function showFirstAndLast(arr) {
   return firstAndLast;
 }
 
-console.log(showFirstAndLast([1,2,"hi","there",3,"stranger",10.5]));
+console.log(showFirstAndLast([1, 2, "hi", "there", 3, "stranger", 10.5]));
+
+function vowelCount(str) {
+  str = str.toLowerCase();
+  const count = {};
+  for (let char of str) {
+    if (
+      char === "a" ||
+      char === "e" ||
+      char === "i" ||
+      char === "o" ||
+      char === "u"
+    )
+      if (count.hasOwnProperty(char)) {
+        count[char]++;
+      } else {
+          count[char] = 1;
+      }
+  }
+  return count;
+}
+
+console.log(vowelCount("daaiewwuw"));
+
 
