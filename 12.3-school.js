@@ -46,16 +46,29 @@ const school = {
   },
 
   getTeachersBySubject: function (subject) {
-    return this.teachers.filter((teacher) => teacher.subjects.includes(subject));
+    return this.teachers.filter((teacher) =>
+      teacher.subjects.includes(subject)
+    );
   },
 
   assignStudent: function (studentId, subject) {
     //get teacher that teaches subject, and has capacity
-
+    //TODO:
     //get name of student
     this.findPerson("student", studentId).name;
+    //assign
+  },
+  assignTeachersSubject: function (teacherId, subject) {
+    const teacher = this.findPerson("teachers", teacherId);
+    if (!teacher.subjects.includes(subject)) {
+      // this teacher currently not teaches this subjcet, add it
+      teacher.subjects.push(subject);
+    }
   },
 };
 
 console.log(school.findPerson("teachers", 2));
 console.log(school.getTeachersBySubject("history"));
+
+school.assignTeachersSubject(2, "biology");
+console.log(school.findPerson("teachers", 2));
