@@ -1,3 +1,5 @@
+// TODO: refactor all funcs to return stuff and not console log them
+
 function isString(str, func) {
   if (typeof str === "string") {
     func(str);
