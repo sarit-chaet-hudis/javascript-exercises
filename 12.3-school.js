@@ -5,7 +5,7 @@ const school = {
       name: "Pinchas",
       subjects: ["chemistry", "biology", "physics"],
       students: [],
-      capacityLeft: 3,
+      capacityLeft: 0,
     },
     {
       id: 2,
@@ -52,11 +52,24 @@ const school = {
   },
 
   assignStudent: function (studentId, subject) {
-    //get teacher that teaches subject, and has capacity
-    //TODO:
-    //get name of student
-    this.findPerson("student", studentId).name;
-    //assign
+    const student = this.findPerson("students", studentId).name;
+    const relevantTeachers = this.getTeachersBySubject(subject);
+    let assignSuccess = false;
+
+    for (let teacher of relevantTeachers) {
+      if (teacher.capacityLeft > 0) {
+        //teacher has capacity, assign the student, then break
+        this.students.push(student);
+        assignSuccess = true;
+        console.log(
+          `congratulations, ${student}, you are enrolled to ${subject} with professor ${teacher.name}`
+        );
+        break;
+      }
+    }
+    if (!assignSuccess) {
+      console.log(`Sorry ${student}, no available ${subject} teachers left`);
+    }
   },
   assignTeachersSubject: function (teacherId, subject) {
     const teacher = this.findPerson("teachers", teacherId);
@@ -67,8 +80,11 @@ const school = {
   },
 };
 
-console.log(school.findPerson("teachers", 2));
-console.log(school.getTeachersBySubject("history"));
+// console.log(school.findPerson("teachers", 2));
+// console.log(school.getTeachersBySubject("history"));
 
 school.assignTeachersSubject(2, "biology");
-console.log(school.findPerson("teachers", 2));
+// console.log(school.findPerson("teachers", 2));
+// console.log("teachers that teach biology: ");
+// console.log(school.getTeachersBySubject("biology"));
+school.assignStudent(10, "biology");
