@@ -48,14 +48,9 @@ function vowelCount(str) {
   str = str.toLowerCase();
   const count = {};
   for (let char of str) {
-    if (
-      char === "a" ||
-      char === "e" ||
-      char === "i" ||
-      char === "o" ||
-      char === "u"
-    )
-      if (count.hasOwnProperty(char)) {
+    if ("aeiou".includes(char))
+      if (count[char]) {
+        //vowel already exists in count array
         count[char]++;
       } else {
         count[char] = 1;
@@ -80,11 +75,11 @@ function shiftLetters(str) {
 
 function swapCase(str) {
   const resultArr = str.split(" ");
-//   console.log(resultArr);
+  //   console.log(resultArr);
   for (let wordIndex = 0; wordIndex < resultArr.length; wordIndex++) {
     if (wordIndex % 2 !== 0) {
-        // console.log(resultArr[wordIndex]);
-        resultArr[wordIndex] = capitalize(resultArr[wordIndex]);
+      // console.log(resultArr[wordIndex]);
+      resultArr[wordIndex] = capitalize(resultArr[wordIndex]);
     }
   }
   return resultArr.join(" ");
