@@ -58,7 +58,7 @@ function vowelCount(str) {
       if (count.hasOwnProperty(char)) {
         count[char]++;
       } else {
-          count[char] = 1;
+        count[char] = 1;
       }
   }
   return count;
@@ -66,4 +66,28 @@ function vowelCount(str) {
 
 console.log(vowelCount("daaiewwuw"));
 
+const capitalize = (str) => {
+  return str.toUpperCase();
+};
+console.log(capitalize("hi there neighbour"));
 
+function shiftLetters(str) {
+  const strArr = str.split("");
+  for (char of strArr) {
+    // TODO: shift char
+  }
+}
+
+function swapCase(str) {
+  const resultArr = str.split(" ");
+//   console.log(resultArr);
+  for (let wordIndex = 0; wordIndex < resultArr.length; wordIndex++) {
+    if (wordIndex % 2 !== 0) {
+        // console.log(resultArr[wordIndex]);
+        resultArr[wordIndex] = capitalize(resultArr[wordIndex]);
+    }
+  }
+  return resultArr.join(" ");
+}
+
+console.log(swapCase("hi there stranger whats up?"));
