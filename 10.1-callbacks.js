@@ -15,11 +15,12 @@ function rose(str) {
 isString("33", print);
 
 function firstWordUpperCase(str, func) {
-  console.log(func(str[0].toUpperCase() + str.slice(1)));
+  const newStr = str[0].toUpperCase() + str.slice(1);
+  console.log(func(newStr));
 }
 
 function kebab(str) {
-  return str.replace(/ /g, "-");
+  return str.replace(/ +/g, "-");
 }
 
 firstWordUpperCase("hi there mate whats up?", kebab);
