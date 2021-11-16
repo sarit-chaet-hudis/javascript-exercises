@@ -66,13 +66,6 @@ const capitalize = (str) => {
 };
 console.log(capitalize("hi there neighbour"));
 
-function shiftLetters(str) {
-  const strArr = str.split("");
-  for (char of strArr) {
-    // TODO: shift char
-  }
-}
-
 function swapCase(str) {
   const resultArr = str.split(" ");
   //   console.log(resultArr);
