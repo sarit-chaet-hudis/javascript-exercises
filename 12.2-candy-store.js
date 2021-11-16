@@ -17,7 +17,10 @@ const candyStore = {
 };
 
 function getCandy(candyStore, id) {
-  return candyStore.candies.find((candy) => candy.id === id);
+  return (
+    candyStore.candies.find((candy) => candy.id === id) ||
+    "no such id, try again"
+  );
 }
 
 function getPrice(candyStore, id) {
@@ -37,11 +40,11 @@ function buy(candyStore, id) {
   }
 }
 
-console.log(getCandy(candyStore, "5hd7y"));
-console.log(getPrice(candyStore, "5hd7y"));
-addCandy(candyStore, "4jcn!", "Creambo", 3);
+console.log(getCandy(candyStore, "57y"));
+// console.log(getPrice(candyStore, "5hd7y"));
+// addCandy(candyStore, "4jcn!", "Creambo", 3);
 
-buy(candyStore, "4jcn!");
-console.log(candyStore);
-buy(candyStore, "4jcn!");
-console.log(candyStore);
+// buy(candyStore, "4jcn!");
+// console.log(candyStore);
+// buy(candyStore, "4jcn!");
+// console.log(candyStore);

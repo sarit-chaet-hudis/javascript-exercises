@@ -74,11 +74,14 @@ const school = {
   assignTeachersSubject: function (teacherId, subject) {
     const teacher = this.findPerson("teachers", teacherId);
     if (!teacher.subjects.includes(subject)) {
-      // this teacher currently not teaches this subjcet, add it
+      // this teacher currently not teaches this subject, add it
       teacher.subjects.push(subject);
     }
   },
 };
+
+// ******************************
+
 
 // console.log(school.findPerson("teachers", 2));
 // console.log(school.getTeachersBySubject("history"));
