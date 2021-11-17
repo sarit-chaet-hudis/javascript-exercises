@@ -54,22 +54,18 @@ const school = {
   assignStudent: function (studentId, subject) {
     const student = this.findPerson("students", studentId).name;
     const relevantTeachers = this.getTeachersBySubject(subject);
-    let assignSuccess = false;
 
     for (let teacher of relevantTeachers) {
       if (teacher.capacityLeft > 0) {
-        //teacher has capacity, assign the student, then break
+        // Teacher has capacity, assign the student, then break
         this.students.push(student);
-        assignSuccess = true;
+        teacher.capacityLeft--;
         console.log(
           `congratulations, ${student}, you are enrolled to ${subject} with professor ${teacher.name}`
         );
-        break;
       }
     }
-    if (!assignSuccess) {
-      console.log(`Sorry ${student}, no available ${subject} teachers left`);
-    }
+    console.log(`Sorry ${student}, no available ${subject} teachers left`);
   },
   assignTeachersSubject: function (teacherId, subject) {
     const teacher = this.findPerson("teachers", teacherId);
@@ -81,7 +77,6 @@ const school = {
 };
 
 // ******************************
-
 
 // console.log(school.findPerson("teachers", 2));
 // console.log(school.getTeachersBySubject("history"));

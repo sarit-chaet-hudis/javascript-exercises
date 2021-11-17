@@ -5,13 +5,16 @@ const numMax = numbers.reduce((accumulator, currentValue) => {
 });
 console.log(numMax);
 
-const sumOfEven = numbers
-  .filter((n) => {
-    if (n % 2 === 0) return n;
-  })
-  .reduce((acc, n) => acc + n);
+function sumOfEven(numbers) {
+  numbers.unshift(0);
+  console.log(numbers);
+  const result = numbers.reduce((acc, n) => {
+    return n % 2 === 0 ? acc + n : acc;
+  });
+  return result;
+}
 
-console.log(sumOfEven);
+console.log(sumOfEven(numbers));
 
-const avg = numbers.reduce((acc,n) => acc + n / 2);
+const avg = numbers.reduce((acc, n) => acc + n / 2);
 console.log(avg);
