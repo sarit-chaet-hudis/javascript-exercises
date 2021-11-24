@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myFirstDiv"></div>
+    <div id="mySecondDiv"></div>
+    <div id="myThridDiv"></div>
+    <div id="myFourthDiv"></div>
+    <script>
+      const divs = document.querySelectorAll("div");
+      [...divs].forEach((div) => console.log(div));
+    </script>
+  </body>
+</html>
+
+
+
+<!-- I agree it is generally preferable to use an Array for this.
+
+However, this can also be accomplished in JavaScript by simply adding properties to the current scope (the global scope, if top-level code; the function scope, if within a function) by simply using this – which always refers to the current scope.
+
+for (var i = 0; i < coords.length; ++i) {
+    this["marker"+i] = "some stuff";
+}
+You can later retrieve the stored values (if you are within the same scope as when they were set):
+
+var foo = this.marker0;
+console.log(foo); // "some stuff"
+This slightly odd feature of JavaScript is rarely used (with good reason), but in certain situations it can be useful. -->

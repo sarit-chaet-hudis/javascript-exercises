@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <ul>
+      <li>title 1</li>
+      <li class="start-here">title 2</li>
+      <li>
+        df
+        <ul>
+          <li>sub title 1</li>
+          <li>sub title 2</li>
+          <li>sub title 3</li>
+        </ul>
+      </li>
+      <li>title 3</li>
+    </ul>
+    <div>
+      <p>Hello World!</p>
+    </div>
+    <script>
+      const start = document.querySelector("li.start-here");
+
+      start.innerHTML = "main title";
+
+      let node = document.createElement("LI");
+      node.innerText = "sub title 4";
+      // add subtitle 4
+      start.nextElementSibling.firstElementChild.appendChild(node);
+      // delete last li "title 3"
+      start.parentElement.lastElementChild.remove();
+      // change title of document
+      start.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.children[2].innerText =
+        "Master Of The Dom";
+      // change inner text of p
+      start.parentElement.nextElementSibling.firstElementChild.innerText =
+        "How i learned to start traversing the DOM";
+    </script>
+  </body>
+</html>
