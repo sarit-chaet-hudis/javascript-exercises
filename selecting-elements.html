@@ -23,7 +23,7 @@ initial-scale=1.0"
   </body>
   <script>
     const elements = document.querySelectorAll("body *"); // returns NodeList
-    const elementsWithoutJQuery = document.body.getElementsByTagName("*"); // returns HTMLCollection
+    const elementsWithoutQuery = document.body.getElementsByTagNames("*"); // returns HTMLCollection
 
     const inputs = document.getElementsByTagName("input");
     Array.from(inputs).forEach((input) => console.log(input));
