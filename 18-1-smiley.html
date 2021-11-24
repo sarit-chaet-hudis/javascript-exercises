@@ -26,9 +26,9 @@
       <input type="text" />
       <button type="submit">Submit</button>
     </div>
-    <div class="emoji-cont">
-      <div class="emoji"></div>
-    </div>
+
+    <div class="emoji"></div>
+
     <script>
       const emojiArr = [
         "😅",
@@ -58,24 +58,21 @@
       function createEmojis() {
         const inputValue = document.querySelector("input").value;
         if (isNaN(inputValue) || inputValue < 1 || inputValue > 500) {
-          alert("try again, submit a number between 1 and 500");
+          alert("Try again, submit a number between 1 and 500");
         } else {
-          removeAllChildNodes(document.querySelector(".emoji"));
+          const emoji = document.querySelector(".emoji");
+          emoji.innerHTML = "";
 
           for (let i = 0; i < inputValue; i++) {
             let newEmoji = document.createElement("span");
 
-            newEmoji.textContent = emojiArr[Math.floor(Math.random() * 10)];
-            newEmoji.style.fontSize = sizes[Math.floor(Math.random() * 6)];
+            newEmoji.textContent =
+              emojiArr[Math.floor(Math.random() * emojiArr.length)];
+            newEmoji.style.fontSize =
+              sizes[Math.floor(Math.random() * sizes.length)];
 
-            document.querySelector(".emoji").appendChild(newEmoji);
+            emoji.appendChild(newEmoji);
           }
-        }
-      }
-
-      function removeAllChildNodes(parent) {
-        while (parent.firstChild) {
-          parent.removeChild(parent.firstChild);
         }
       }
     </script>
