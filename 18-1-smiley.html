@@ -7,19 +7,27 @@
     <title>Emoji maker!</title>
     <style>
       .emoji {
-        font-size: xx-large;
-        display: inline;
+        font-size: large;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #title-emoji {
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div>
+      <p id="title-emoji"></p>
       <p>How many Emojis do you want to see?</p>
       <input type="text" />
       <button type="submit">Submit</button>
     </div>
     <div class="emoji-cont">
-      <div class="emoji">😅</div>
+      <div class="emoji"></div>
     </div>
     <script>
       const emojiArr = [
@@ -34,23 +42,34 @@
         "💩",
         "😎",
       ];
-      document.querySelector(".emoji").textContent =
+      const sizes = [
+        "xx-large",
+        "medium",
+        "large",
+        "small",
+        "xx-large",
+        "x-large",
+      ];
+
+      document.querySelector("#title-emoji").textContent =
         emojiArr[Math.floor(Math.random() * 10)];
       document.querySelector("button").addEventListener("click", createEmojis);
 
       function createEmojis() {
         const inputValue = document.querySelector("input").value;
-        if (isNaN(inputValue)) {
-          alert("try again, submit a number between 1 and 100");
-        } //TODO: not working!!
+        if (isNaN(inputValue) || inputValue < 1 || inputValue > 500) {
+          alert("try again, submit a number between 1 and 500");
+        } else {
+          removeAllChildNodes(document.querySelector(".emoji"));
 
-        removeAllChildNodes(document.querySelector(".emoji"));
+          for (let i = 0; i < inputValue; i++) {
+            let newEmoji = document.createElement("span");
 
-        for (let i = 0; i < inputValue; i++) {
-          let newEmoji = document.createElement("span");
-          newEmoji.textContent = emojiArr[Math.floor(Math.random() * 10)];
-          console.log(newEmoji);
-          document.querySelector(".emoji").appendChild(newEmoji);
+            newEmoji.textContent = emojiArr[Math.floor(Math.random() * 10)];
+            newEmoji.style.fontSize = sizes[Math.floor(Math.random() * 6)];
+
+            document.querySelector(".emoji").appendChild(newEmoji);
+          }
         }
       }
 
