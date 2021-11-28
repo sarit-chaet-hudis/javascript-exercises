@@ -52,6 +52,7 @@
         input.setAttribute("pattern", "[0-9]");
         input.setAttribute("value", "");
         input.addEventListener("paste", getPastedData);
+        // pass focus to next input box
         input.addEventListener("input", () => {
           input.nextElementSibling.focus();
         });
@@ -64,6 +65,7 @@
       document.querySelector(".verify").addEventListener("click", verify);
 
       function getPastedData(e) {
+        // only relevant when user pastes data
         // get data that was pasted and put into input boxes
 
         console.log(`e.target.id is: ${e.target.id}`);
