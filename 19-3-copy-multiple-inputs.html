@@ -14,9 +14,13 @@
         text-align: center;
       }
       input {
+        text-align: center;
         width: 15px;
         padding: 3px;
         margin: 5px;
+      }
+      input:invalid {
+        border-color: red;
       }
       button {
         margin: 10px;
@@ -45,6 +49,7 @@
 
       inputs.forEach((input) => {
         input.setAttribute("maxlength", "1");
+        input.setAttribute("pattern", "[0-9]");
         input.setAttribute("value", "");
         input.addEventListener("paste", getPastedData);
         input.addEventListener("input", () => {
@@ -52,16 +57,19 @@
         });
       });
 
+      // add listener to last input, for automatic verification
       inputs[5].addEventListener("input", verify);
 
       // manual typing - trigger verification after entering last digit
       document.querySelector(".verify").addEventListener("click", verify);
 
       function getPastedData(e) {
+        // get data that was pasted and put into input boxes
+
         console.log(`e.target.id is: ${e.target.id}`);
         //TODO get index from where user clicked and start the for loop with it
 
-        //prevent from being pasted
+        //prevent from being pasted to first input only
         e.stopPropagation();
         e.preventDefault();
 
@@ -74,6 +82,7 @@
         }
 
         for (let i = 0; i < pastedData.length; i++) {
+          // paste each digit into separate input field
           const curInput = document.querySelector("#input" + i);
           curInput.value = pastedData[i];
           if (i === 5) {
@@ -83,14 +92,13 @@
       }
 
       function verify() {
+        // console log the digits that were entered to inputs (manually or copy paste)
         const result = [];
         inputs.forEach((input) => {
           result.push(input.value);
         });
         console.log("verifying... " + result.join(""));
       }
-
-      console.log(inputs);
     </script>
   </body>
 </html>
