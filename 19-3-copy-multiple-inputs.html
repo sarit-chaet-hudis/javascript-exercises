@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      form {
+        text-align: center;
+      }
+      input {
+        width: 15px;
+        padding: 3px;
+        margin: 5px;
+      }
+      button {
+        margin: 10px;
+        padding: 3px 10px;
+      }
+    </style>
+    <title>mumltiple inputs</title>
+  </head>
+  <body>
+    <h1>Text to copy:</h1>
+    <h2>987654</h2>
+    <form action="">
+      <input type="text" name="input0" id="input0" />
+      <input type="text" name="input1" id="input1" />
+      <input type="text" name="input2" id="input2" />
+      <input type="text" name="input3" id="input3" />
+      <input type="text" name="input4" id="input4" />
+      <input type="text" name="input5" id="input5" />
+
+      <br />
+      <button type="submit">Verify</button>
+      <br />
+      <button type="clear" class="clear">Clear</button>
+    </form>
+    <script>
+      const inputs = document.querySelectorAll("input");
+
+      inputs.forEach((input) => {
+        input.setAttribute("maxlength", "1");
+        input.setAttribute("value", "");
+        input.addEventListener("paste", getPastedData);
+      });
+
+      //   querySelector(".clear").addEventListener("click", () => {
+      //     inputs.forEach((input) => {
+      //       input.setAttribute("value", "");
+      //     });
+      //   });
+
+      function getPastedData(e) {
+        //TODO get index from where user clicked and start the for loop with it
+
+        //prevent from being pasted
+        e.stopPropagation();
+        e.preventDefault();
+
+        // Get pasted data via clipboard API
+        clipboardData = e.clipboardData || window.clipboardData;
+        pastedData = clipboardData.getData("Text").split("");
+
+        if (pastedData.length > 6) {
+          pastedData.splice(6); //TODO should it be 5?
+        }
+
+        for (let i = 0; i < pastedData.length; i++) {
+          const curInput = document.querySelector("#input" + i);
+          console.log(
+            `curInput is ${curInput} and pastedData[i] is ${pastedData[i]}`
+          );
+          curInput.value = pastedData[i];
+        }
+      }
+
+      console.log(inputs);
+    </script>
+  </body>
+</html>
