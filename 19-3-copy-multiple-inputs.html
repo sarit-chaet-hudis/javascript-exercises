@@ -37,9 +37,8 @@
       <input type="text" name="input5" id="input5" />
 
       <br />
-      <button type="submit">Verify</button>
+      <button class="verify">Verify</button>
       <br />
-      <button type="clear" class="clear">Clear</button>
     </form>
     <script>
       const inputs = document.querySelectorAll("input");
@@ -48,15 +47,18 @@
         input.setAttribute("maxlength", "1");
         input.setAttribute("value", "");
         input.addEventListener("paste", getPastedData);
+        input.addEventListener("input", () => {
+          input.nextElementSibling.focus();
+        });
       });
 
-      //   querySelector(".clear").addEventListener("click", () => {
-      //     inputs.forEach((input) => {
-      //       input.setAttribute("value", "");
-      //     });
-      //   });
+      inputs[5].addEventListener("input", verify);
+
+      // manual typing - trigger verification after entering last digit
+      document.querySelector(".verify").addEventListener("click", verify);
 
       function getPastedData(e) {
+        console.log(`e.target.id is: ${e.target.id}`);
         //TODO get index from where user clicked and start the for loop with it
 
         //prevent from being pasted
@@ -68,16 +70,24 @@
         pastedData = clipboardData.getData("Text").split("");
 
         if (pastedData.length > 6) {
-          pastedData.splice(6); //TODO should it be 5?
+          pastedData.splice(6);
         }
 
         for (let i = 0; i < pastedData.length; i++) {
           const curInput = document.querySelector("#input" + i);
-          console.log(
-            `curInput is ${curInput} and pastedData[i] is ${pastedData[i]}`
-          );
           curInput.value = pastedData[i];
+          if (i === 5) {
+            verify();
+          }
         }
+      }
+
+      function verify() {
+        const result = [];
+        inputs.forEach((input) => {
+          result.push(input.value);
+        });
+        console.log("verifying... " + result.join(""));
       }
 
       console.log(inputs);
