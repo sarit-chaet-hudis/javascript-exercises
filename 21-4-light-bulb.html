@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./21-light-bulb.css" />
+    <title>21-4 light bulb</title>
+  </head>
+  <body>
+    <h1>Switch the light bulb on and off</h1>
+    <div class="bulb"><div class="light"></div></div>
+
+    <label class="switch">
+      <input type="checkbox" class="switchBtn" />
+      <span class="slider round"></span>
+    </label>
+    <script>
+      const lightSwitch = document.querySelector(".switchBtn");
+      lightSwitch.addEventListener("change", toggleLight);
+      const light = document.querySelector(".light");
+      light.style.display = "none";
+
+      function toggleLight() {
+        light.style.display === "none"
+          ? (light.style.display = "block")
+          : (light.style.display = "none");
+      }
+    </script>
+  </body>
+</html>
