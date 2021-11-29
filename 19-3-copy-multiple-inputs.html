@@ -44,6 +44,7 @@
       <button class="verify">Verify</button>
       <br />
     </form>
+    <p class="verificationMsg"></p>
     <script>
       const inputs = document.querySelectorAll("input");
 
@@ -92,6 +93,7 @@
           }
         }
       }
+      const correctPassword = "987654";
 
       function verify() {
         // console log the digits that were entered to inputs (manually or copy paste)
@@ -99,7 +101,12 @@
         inputs.forEach((input) => {
           result.push(input.value);
         });
-        console.log("verifying... " + result.join(""));
+        const isVerified = document.querySelector(".verificationMsg");
+        if (correctPassword === result.join("")) {
+          isVerified.innerText = "Verified!";
+        } else {
+          isVerified.innerText = "Wrong password";
+        }
       }
     </script>
   </body>
