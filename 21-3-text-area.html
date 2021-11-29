@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body div {
+        width: 60%;
+        margin: auto;
+      }
+      textarea {
+        resize: none;
+      }
+    </style>
+    <title>text area minimum chars</title>
+  </head>
+  <body>
+    <div>
+      <h2>Why are you interested in this position?</h2>
+      <textarea name="inputText" id="inputText" cols="50" rows="10"></textarea>
+      <br />
+      <p class="userMessage"></p>
+      <button class="button" disabled>Click Here!</button>
+    </div>
+    <script>
+      const textArea = document.querySelector("#inputText");
+      textArea.addEventListener("input", checkInputLength);
+      const button = document.querySelector(".button");
+
+      function checkInputLength() {
+        textArea.value.length > 99
+          ? (button.disabled = false)
+          : (button.disabled = true);
+
+        document.querySelector(
+          ".userMessage"
+        ).innerText = `Please write at least ${
+          100 - textArea.value.length
+        } more characters`;
+      }
+    </script>
+  </body>
+</html>
