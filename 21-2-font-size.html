@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21-2 font size</title>
+    <style>
+      button {
+        width: 30px;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Change the paragraph font size with these buttons:</h1>
+    <div>
+      <button class="bigger">➕</button>
+      <button class="smaller">➖</button>
+    </div>
+    <p class="sample">
+      Snackwave kale chips butcher VHS austin post-ironic hell of mixtape
+      mumblecore offal selfies brunch locavore trust fund quinoa.
+    </p>
+
+    <script>
+      document
+        .querySelector(".bigger")
+        .addEventListener("click", changeFontSize);
+      document
+        .querySelector(".smaller")
+        .addEventListener("click", changeFontSize);
+
+      function changeFontSize(e) {
+        e.preventDefault(); //prevent refresh
+        const p = document.querySelector(".sample");
+        const fontSize = window
+          .getComputedStyle(p)
+          .getPropertyValue("font-size")
+          .slice(0, -2); //removes "px" suffix
+
+        e.target.classList.contains("bigger")
+          ? (p.style.fontSize = Math.min(+fontSize + 5, 100) + "px")
+          : // clicked smaller:
+            (p.style.fontSize = Math.max(+fontSize - 5, 6) + "px");
+      }
+    </script>
+  </body>
+</html>
