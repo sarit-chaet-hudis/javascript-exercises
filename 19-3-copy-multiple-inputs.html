@@ -80,11 +80,7 @@
         clipboardData = e.clipboardData || window.clipboardData;
         pastedData = clipboardData.getData("Text").split("");
 
-        if (pastedData.length > 6) {
-          pastedData.splice(6);
-        }
-
-        for (let i = 0; i < pastedData.length; i++) {
+        for (let i = 0; i < Math.max(pastedData.length, 6); i++) {
           // paste each digit into separate input field
           const curInput = document.querySelector("#input" + i);
           curInput.value = pastedData[i];

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21-1-age</title>
+  </head>
+  <body>
+    <form action="">
+      please enter your age in digits
+      <input type="text" name="age" id="age" maxlength="3" pattern="[0-9]+" />
+      <button id="check">Submit</button>
+      <p class="message"></p>
+    </form>
+    <script>
+      const btn = document.querySelector("#check");
+      btn.addEventListener("click", checkAge);
+      function checkAge(e) {
+        e.preventDefault();
+        let message =
+          +document.querySelector("#age").value >= 18
+            ? "You can drink"
+            : "Your'e too young to drink";
+        document.querySelector(".message").innerText = message;
+      }
+    </script>
+  </body>
+</html>
