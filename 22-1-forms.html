@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forms 21-1</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="fullName" placeholder="Your full name" />
+      <input type="text" id="age" placeholder="Your age" />
+      <input type="email" id="email" placeholder="Your email address" />
+      <button type="submit" class="submit">Submit</button>
+    </form>
+    <script>
+      const fullName = document.querySelector("#fullName");
+      const age = document.querySelector("#age");
+      const email = document.querySelector("#email");
+
+      const submit = document.querySelector(".submit");
+
+      submit.addEventListener("click", confirm);
+
+      function confirm(e) {
+        e.preventDefault();
+        console.log(fullName.value, age.value, email.value);
+      }
+    </script>
+  </body>
+</html>
