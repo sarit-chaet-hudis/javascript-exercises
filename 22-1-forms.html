@@ -30,7 +30,7 @@
       <p class="fullName"></p>
       <p class="age"></p>
       <p class="email"></p>
-      Do You want to change any of them or do you confirm?
+      <p>Do You want to change any of them or do you confirm?</p>
       <br />
       <button class="change">Change information</button>
       <button class="confirm">Confirm</button>
@@ -47,6 +47,8 @@
 
       function confirm(e) {
         e.preventDefault();
+
+        showUserInputs();
         const confirmDialogue = document.querySelector(".confirmDialogue");
         confirmDialogue.style.display = "block";
 
@@ -64,6 +66,17 @@
           changeButton.disabled = true;
           confirmButton.disabled = true;
         });
+      }
+
+      function showUserInputs() {
+        document.querySelector(".fullName").innerText =
+          document.querySelector("#fullName").value;
+
+        document.querySelector(".age").innerText =
+          document.querySelector("#age").value;
+
+        document.querySelector(".email").innerText =
+          document.querySelector("#email").value;
       }
     </script>
   </body>
