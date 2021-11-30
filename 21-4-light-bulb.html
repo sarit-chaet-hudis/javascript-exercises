@@ -12,14 +12,14 @@
     <div class="bulb"><div class="light"></div></div>
 
     <label class="switch">
-      <input type="checkbox" class="switchBtn" />
+      <input type="checkbox" class="switchButton" />
       <span class="slider round"></span>
     </label>
     <script>
-      const lightSwitch = document.querySelector(".switchBtn");
-      lightSwitch.addEventListener("change", toggleLight);
+      const lightSwitch = document.querySelector(".switchButton");
       const light = document.querySelector(".light");
       light.style.display = "none";
+      lightSwitch.addEventListener("change", toggleLight);
 
       function toggleLight() {
         light.style.display === "none"
