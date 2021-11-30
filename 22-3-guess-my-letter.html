@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Guess my Letter!</title>
+    <style>
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        border: 1px solid hotpink;
+      }
+
+      .letter-cont {
+        width: 30px;
+        border: 1px solid dodgerblue;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Welcome to Guess my Letter!</h1>
+      <div class="letter-cont">?</div>
+      <p>Guess the letter with your keyboard..</p>
+      <div class="message"></div>
+      <div class="guessed"></div>
+    </div>
+    <script src="./22-3-guess-my-letter.js"></script>
+  </body>
+</html>
