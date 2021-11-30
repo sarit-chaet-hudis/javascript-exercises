@@ -24,10 +24,15 @@ function messageUser(result, key) {
     case "success":
       messageDiv.style.color = "green";
       messageDiv.innerText = "You guessed it! It's " + key + "!";
+      document.querySelector(".letter-cont").innerText = key;
       break;
     case "guessedBefore":
       messageDiv.style.color = "black";
-      messageDiv.innerText = "You already guessed the letter ", key;
+      messageDiv.innerText = "You already guessed the letter " + key;
+      break;
+    case "wrong":
+      messageDiv.style.color = "red";
+      messageDiv.innerText = "Sorry, try again";
       break;
   }
   //  receives 4 states: invalid char, wrong guess, guessed before, success
@@ -35,8 +40,16 @@ function messageUser(result, key) {
 
 function check(key) {
   // if right char => messageUsr ("success")
-  if (key === correctLetter) messageUser("success", key);
+  if (key === correctLetter) {
+    messageUser("success", key);
+  }
   // if not, check if guessed before => messageUsr ("guessed before")
-  if (guessedLetters.includes(key)) messageUser("guessedBefore", key);
-  // if not, add to guessed letters + messageUsr
+  else if (guessedLetters.includes(key)) {
+    messageUser("guessedBefore", key);
+  } else {
+    // wrong guess: add to guessed letters + messageUsr
+    guessedLetters.push(key);
+    document.querySelector(".guessed").innerText = guessedLetters.join(", ");
+    messageUser("wrong", key);
+  }
 }
