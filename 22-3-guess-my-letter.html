@@ -7,12 +7,14 @@
     <title>Play Guess my Letter!</title>
     <style>
       .main {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 80%;
+        height: 100%;
         margin: auto;
-        border: 1px solid hotpink;
+        border: 1px solid salmon;
       }
 
       .letter-cont {
@@ -21,6 +23,15 @@
         border-radius: 10px;
         text-align: center;
         padding: 10px;
+        margin: 20px;
+      }
+
+      div {
+        margin: 20px;
+      }
+
+      .message {
+          font-weight: bold;
       }
     </style>
   </head>
@@ -28,9 +39,13 @@
     <div class="main">
       <h1>Welcome to Guess my Letter!</h1>
       <div class="letter-cont">?</div>
-      <p>Guess the letter with your keyboard..</p>
-      <div class="message"></div>
-      <div class="guessed"></div>
+
+      <div class="message">Try and guess the letter with your keyboard</div>
+
+      <div class="guessed">
+        Letters you have already tried:
+        <p></p>
+      </div>
     </div>
     <script src="./22-3-guess-my-letter.js"></script>
   </body>
