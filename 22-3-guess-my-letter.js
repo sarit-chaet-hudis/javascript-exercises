@@ -1,16 +1,16 @@
-const correctLetter = "b";
-// const correctLetter = Math.floor(Math.random() * 22);
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+const correctLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 const guessedLetters = [];
 
-window.addEventListener("keypress", keyPressed);
+window.addEventListener("keydown", keyPressed);
 
 function keyPressed(e) {
-  const key = e.key.toLowerCase();
-  if (!key.match(/[a-z]/)) {
+  const key = e.key;
+  if (!key.match(/[a-zA-Z]/)) {
     messageUser("invalid");
   } else {
     // char is valid
-    check(key);
+    check(key.toLowerCase());
   }
 }
 
@@ -23,7 +23,7 @@ function messageUser(result, key) {
       break;
     case "success":
       messageDiv.style.color = "green";
-      messageDiv.innerText = "You guessed it! It's " + key + "!";
+      messageDiv.innerText = "You guessed it! It's " + key + "! Play again?";
       document.querySelector(".letter-cont").innerText = key;
       break;
     case "guessedBefore":
@@ -42,6 +42,10 @@ function check(key) {
   // if right char => messageUsr ("success")
   if (key === correctLetter) {
     messageUser("success", key);
+    window.removeEventListener("keydown", keyPressed);
+    const playAgain = document.querySelector(".playAgain");
+    playAgain.style.display = "inline-block";
+    playAgain.addEventListener("click", () => window.location.reload());
   }
   // if not, check if guessed before => messageUsr ("guessed before")
   else if (guessedLetters.includes(key)) {

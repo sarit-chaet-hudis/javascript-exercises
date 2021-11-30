@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Play Guess my Letter!</title>
     <style>
+      .playAgain {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        background: salmon;
+        display: none;
+      }
+
+      .playAgain:hover {
+        background: grey;
+      }
+
       .main {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         display: flex;
@@ -26,7 +38,8 @@
         margin: 20px;
       }
 
-      div, p {
+      div,
+      p {
         margin: 20px;
         text-align: center;
       }
@@ -42,7 +55,7 @@
       <div class="letter-cont">?</div>
 
       <div class="message">Try and guess the letter with your keyboard</div>
-
+      <button class="playAgain">Play again!</button>
       <div>
         Letters you have already tried:
         <p class="guessed"></p>
