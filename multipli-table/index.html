@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Multiplication Table</title>
+  </head>
+  <body>
+    <table></table>
+    <script>
+      const table = document.querySelector("table");
+      let output = "";
+      for (
+        let i = 1;
+        i < 11;
+        i++ //rows
+      ) {
+        output += "<tr>";
+        for (let j = 1; j < 21; j++) {
+          output += `<td class="row${i} col${j}">${i * j}</td>`;
+        }
+        output += "</tr>";
+      }
+      table.innerHTML = output;
+
+      function colorRowCol(e) {
+        document.querySelectorAll("td").forEach((td)=>td.classList.remove("color"));
+        const row = e.target.classList[0].slice(3);
+        const col = e.target.classList[1].slice(3);
+        document.querySelectorAll(`.row${row}`).forEach((td)=>td.classList.add("color"));
+        document.querySelectorAll(`.col${col}`).forEach((td)=>td.classList.add("color"));
+
+        
+      }
+      document
+        .querySelectorAll("table td")
+        .forEach((td) => td.addEventListener("mouseenter", colorRowCol));
+    </script>
+  </body>
+</html>

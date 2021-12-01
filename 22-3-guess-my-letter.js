@@ -57,3 +57,10 @@ function check(key) {
     messageUser("wrong", key);
   }
 }
+
+// TODO get rand letter > inside function. call it on start game / restart
+// TODO function that checks if letter was guessed and if not - push to guessed array
+// TODO write restart function WITHOUT refreshing the page
+function restart() {
+  //TODO  cand it be generalized to "start game" as well?
+}

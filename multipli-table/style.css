@@ -1,0 +1,23 @@
+table,
+th,
+td {
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid hotpink;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+td,
+th {
+  width: 40px;
+  height: 40px;
+}
+
+td:hover {
+  background-color: dodgerblue;
+}
+
+.color {
+    background-color: rgba(30, 143, 255, 0.3);
+}
