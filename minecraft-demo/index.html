@@ -11,6 +11,8 @@
     <table></table>
     <div class="tools">
       <div class="axe">axe</div>
+      <div class="pickaxe">pickaxe</div>
+      <div class="shovel">shovel</div>
     </div>
     <script>
       function createBoard() {
@@ -21,7 +23,7 @@
           output += "<tr>";
           for (let j = 1; j < 16; j++) {
             tileType = i < 10 ? "sky" : "ground";
-            output += `<td onclick="makeCloud(this)" class="row${i} col${j} ${tileType}">${i},${j}</td>`;
+            output += `<td onclick="makeSky(this)" data-row="${i}" data-col="${j}" class="${tileType}">${i},${j}</td>`;
           }
           output += "</tr>";
         }
@@ -29,10 +31,10 @@
         table.innerHTML = output;
       }
 
-      function makeCloud(tile) {
+      function makeSky(tile) {
         // just for demo
         console.log(tile.classList);
-        tile.classList.replace("sky", "cloud");
+        tile.classList.replace(tile.classList[0], "sky");
       }
 
       function changeTile(tile, tool) {
