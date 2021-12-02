@@ -11,8 +11,6 @@
     <table></table>
     <div class="tools">
       <div class="axe">axe</div>
-      
-
     </div>
     <script>
       function createBoard() {
@@ -22,7 +20,7 @@
         for (let i = 1; i < 16; i++) {
           output += "<tr>";
           for (let j = 1; j < 16; j++) {
-            tileType = i < 8 ? "sky" : "ground";
+            tileType = i < 10 ? "sky" : "ground";
             output += `<td onclick="makeCloud(this)" class="row${i} col${j} ${tileType}">${i},${j}</td>`;
           }
           output += "</tr>";
@@ -32,23 +30,24 @@
       }
 
       function makeCloud(tile) {
+        // just for demo
+        console.log(tile.classList);
         tile.classList.replace("sky", "cloud");
       }
 
-      function changeTile(tile, tileType) {
-        // llike make cloud but general
+      function changeTile(tile, tool) {
+        // if the tool is right, make tile into sky
+        // put tile in inventory
       }
 
-      function populate (board) {
+      function populate(board) {
         // place 2 trees randomly, maybe some gem tiles?
       }
 
-      function pickTool () {
-
-      }
+      function pickTool() {}
 
       createBoard();
     </script>
+    <script src="/matrice.js"></script>
   </body>
 </html>
-
