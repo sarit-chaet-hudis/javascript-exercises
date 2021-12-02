@@ -19,20 +19,24 @@
       ) {
         output += "<tr>";
         for (let j = 1; j < 21; j++) {
-          output += `<td class="row${i} col${j}">${i * j}</td>`;
+          output += `<td class="row${i} col${j}">${i},${j}</td>`;
         }
         output += "</tr>";
       }
       table.innerHTML = output;
 
       function colorRowCol(e) {
-        document.querySelectorAll("td").forEach((td)=>td.classList.remove("color"));
+        document
+          .querySelectorAll("td")
+          .forEach((td) => td.classList.remove("color"));
         const row = e.target.classList[0].slice(3);
         const col = e.target.classList[1].slice(3);
-        document.querySelectorAll(`.row${row}`).forEach((td)=>td.classList.add("color"));
-        document.querySelectorAll(`.col${col}`).forEach((td)=>td.classList.add("color"));
-
-        
+        document
+          .querySelectorAll(`.row${row}`)
+          .forEach((td) => td.classList.add("color"));
+        document
+          .querySelectorAll(`.col${col}`)
+          .forEach((td) => td.classList.add("color"));
       }
       document
         .querySelectorAll("table td")

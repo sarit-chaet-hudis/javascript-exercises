@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  
+}
+table,
+th,
+td {
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid hotpink;
+  border-collapse: collapse;
+  padding: 5px;
+  color: white;
+}
+
+td,
+th {
+  width: 40px;
+  height: 40px;
+}
+
+/* td:hover {
+  background-color: dodgerblue;
+} */
+
+.ground {
+    background: url("/ground.jpeg") no-repeat center center/cover;
+}
+
+.sky {
+  background-color: cornflowerblue;
+}
+
+.cloud {
+  background-color: white;
+}
