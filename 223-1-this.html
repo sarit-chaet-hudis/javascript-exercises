@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      fgdf
+    <script>
+      // Question 1:
+      // In your own words what will this point to and why?(Note
+      // this is the global scope)
+      //the window, cause its the context in which the log func is defined
+      console.log(this);
+      //         Question 2:
+      // a. In your own words what will this point to and why.
+      // b. How can you fix this code.
+      // the arrow func does not define a new this upon execution
+      // so the context of console log is window, where the name is undefined.
+      const myObj = {
+        name: "Timmy",
+        greet() {
+          console.log(`Hello ${this.name}`);
+        },
+      };
+      myObj.greet();
+
+      //       Question 3:
+      // In your own words what will this point to and why?
+      // point to window/undefined cause its a function invocation
+      const myFuncDec = function () {
+        console.log(this);
+      };
+
+      //       Question 4:
+      // In your own words what will this point to and why?
+      //same as 3
+      const myFuncArrow = () => {
+        console.log(this);
+      };
+      myFuncArrow();
+
+      //       Question 5:
+      // a. In your own words what will this point to and why.
+      // b. How can you fix this code.
+      //needs an event
+      document.querySelector("body").addEventListener("click",() => {
+        console.log(this);
+      });
+    </script>
+  </body>
+</html>
