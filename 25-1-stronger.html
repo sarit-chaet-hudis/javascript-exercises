@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>25-1 who is stronger</title>
+  </head>
+  <body>
+    <script>
+      const hero = {
+        health: 5,
+        power: 68,
+        getStrength: function () {
+          //   console.log(`this.health inside hero.getstrength: ${this.health}`);
+          if (this.health <= 5) {
+            return this.power - 10;
+          } else return this.power;
+        },
+        getStrength2: function () {
+          //   console.log(`this.health inside hero.getstrength: ${this.health}`);
+          if (hero.health <= 5) {
+            return hero.power - 10;
+          } else return hero.power;
+        },
+      };
+      function whoIsStronger(getStrength) {
+        const myStrength = 82;
+        console.log(getStrength() < 58);
+        if (getStrength() < myStrength) {
+          return "I am stronger";
+        } else return "You are stronger";
+      }
+        console.log(whoIsStronger(hero.getStrength.bind(hero)));
+      
+      //  we pass into whoISStronger the "getstrench" but its "this"
+      //   is the window, so hero.getstrench = undefined!!
+      //   to force "getStrength" to have "this" = "hero", we bind it
+      //   when transferring it as a param.
+      //   and this, my friend, is javascript in all its hideousness.
+    </script>
+  </body>
+</html>
