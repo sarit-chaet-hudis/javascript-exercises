@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23-2 stopwatch</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 128px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: dodgerblue;
+        color: white;
+        font-weight: bold;
+      }
+      div {
+        margin: 50px;
+      }
+      button {
+        padding: 10px;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stopwatch">getting ready</div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+      let startTime;
+      let curTime;
+      let intervalId;
+      let timeElapsed = 0;
+
+      const Stopwatch = {
+        start: function () {
+          startTime = new Date();
+          // in the second round, startTime should get incremented by timeElapsed somehow...
+          intervalId = setInterval(Stopwatch.update, 1000);
+        },
+        update: function () {
+          curTime = new Date();
+          console.log(`curTime is ${curTime}`);
+          timeElapsed = Math.round((curTime - startTime) / 1000);
+          console.log(`time elapsed is ${timeElapsed}`);
+          stopwatchDiv.innerText = timeElapsed;
+        },
+
+        stop: function () {
+          clearInterval(intervalId);
+        },
+      };
+      const stopwatchDiv = document.querySelector(".stopwatch");
+      const startButton = document.querySelector("#start");
+      startButton.addEventListener("click", Stopwatch.start);
+      const stopButton = document.querySelector("#stop");
+      stopButton.addEventListener("click", Stopwatch.stop);
+    </script>
+  </body>
+</html>
