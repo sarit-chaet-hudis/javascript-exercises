@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise chaingng</title>
+  </head>
+  <body>
+    <script>
+      function makeAllCapsAndSort(arr) {
+        const capsArray = new Promise((resolve, reject) => {
+          if (onlyStrings(arr)) {
+            resolve(arr);
+          } else {
+            reject();
+          }
+        })
+          .then((arr) => arr.map((word) => word.toUpperCase()))
+          .then((upperCaseArr) => console.log(upperCaseArr.sort()))
+          .catch(() =>
+            console.log("the array contains things that arent strings")
+          );
+      }
+
+      const onlyStrings = (arr) => {
+        for (a of arr) {
+          if (typeof a !== "string") {
+            return false;
+          } else {
+            return true;
+          }
+        }
+      };
+
+      makeAllCapsAndSort(["hi", "there", "Amy"]);
+      makeAllCapsAndSort(["hi", "there", 2]);
+    </script>
+  </body>
+</html>
