@@ -10,8 +10,8 @@
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -23,10 +23,16 @@ main {
   height: 300px;
   /* border: 1px solid gray; */
   margin: 15px;
-  box-shadow:5px 5px 10px salmon; 
+  box-shadow: 5px 5px 10px salmon;
 }
 
 img {
   border-radius: 50%;
   width: 80%;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #333;
 }

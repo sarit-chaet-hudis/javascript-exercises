@@ -15,6 +15,8 @@ async function getProfile() {
     const response = await fetch(
       `https://api.github.com/users/${wantedProfile.value}`
     );
+    wantedProfile.value = "";
+    wantedProfile.focus();
     if (response.ok) {
       const data = await response.json();
       console.log(data);
@@ -33,12 +35,14 @@ function addProfileCard(data) {
     return;
   } else {
     cards.push(data.name);
+    const cardWrap = document.createElement("a");
+    cardWrap.setAttribute("href", data.html_url);
     const newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.innerHTML = `<h2>${data.name}</h2>`;
     newCard.innerHTML += `<img src="${data.avatar_url}" \>`;
     newCard.innerHTML += `No. of public repos: ${data.public_repos}`;
-
-    document.querySelector("main").appendChild(newCard);
+    cardWrap.appendChild(newCard);
+    document.querySelector("main").appendChild(cardWrap);
   }
 }
