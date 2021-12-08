@@ -9,6 +9,11 @@
   margin: 20px;
 }
 
+#userMessage {
+  color: salmon;
+  font-weight: bold;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
