@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch joke of the day</title>
+    <style>
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Joke d'Joure 🍲</h1>
+      <h2>now with async/await!</h2>
+      <button id="newJoke">Get New Joke</button>
+      <div class="joke">
+        <h3 id="jokeTitle"></h3>
+        <p id="jokeContent"></p>
+      </div>
+    </div>
+    <script>
+      const newJokeButton = document.getElementById("newJoke");
+      const jokeTitle = document.getElementById("jokeTitle");
+      const jokeContent = document.getElementById("jokeContent");
+
+      newJokeButton.addEventListener("click", getJoke);
+
+      async function getJoke() {
+        const data = await (await fetch("https://api.jokes.one/jod")).json();
+        // first resolves the inner await, then the outer
+        jokeTitle.innerText = data.contents.jokes[0].joke.title;
+        jokeContent.innerText = data.contents.jokes[0].joke.text;
+      }
+    </script>
+  </body>
+</html>
