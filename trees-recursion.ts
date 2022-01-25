@@ -6,14 +6,14 @@ class Item {
   isChecked: String; // true, false, partial
   children: Item[];
   parent: Item;
-  trueChildren: Integer;
-  falseChildren: Integer;
+  trueChildren: Number;
+  falseChildren: Number;
 }
 
 function toggleItem(item: Item) {
   // if item is partial or false, toglle to true
   // if item is true, toggle to false
-  if (item.checked === "partial" || item.isChecked === "false") {
+  if (item.isChecked === "partial" || item.isChecked === "false") {
     item.isChecked = "true";
   } else {
     item.isChecked = "false";
@@ -34,7 +34,7 @@ function toggleItem(item: Item) {
 function alignChildren(item: Item) {
   // receive item, make sure all children match in isChecked
   // if child has children, call it again
-  for (child of item.children) {
+  for (let child of item.children) {
     child.isChecked = item.isChecked;
     if (child.children) {
       alignChildren(child);
