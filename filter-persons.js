@@ -12,7 +12,7 @@ exports.persons = [
     { type: "user", name: "Kate Müller", age: 23, occupation: "Astronaut" },
     { type: "admin", name: "Bruce Willis", age: 64, role: "World saver" },
     { type: "user", name: "Wilson", age: 23, occupation: "Ball" },
-    { type: "admin", name: "Agent Smith", age: 23, role: "Anti-virus engineer" },
+    { type: "admin", name: "Agent Smith", age: 32, role: "Anti-virus engineer" },
 ];
 function logPerson(person) {
     console.log(" - ".concat(person.name, ", ").concat(person.age, ", ").concat(person.type === "admin" ? person.role : person.occupation));
@@ -30,10 +30,10 @@ function filterPersons(persons, personType, criteria) {
     });
 }
 exports.filterPersons = filterPersons;
-var usersOfAge23 = filterPersons(exports.persons, "user", { age: 23 });
-// export const adminsOfAge23 = filterPersons(persons, 'admin', { age: 23 });
+// const usersOfAge23 = filterPersons(persons, "user", { age: 23 });
+var adminsOfAge32 = filterPersons(exports.persons, "admin", { age: 32 });
 console.log("Users of age 23:");
-usersOfAge23.forEach(logPerson);
+adminsOfAge32.forEach(logPerson);
 // console.log();
 // console.log('Admins of age 23:');
 // adminsOfAge23.forEach(logPerson);

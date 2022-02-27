@@ -25,7 +25,7 @@ export const persons: Person[] = [
   { type: "user", name: "Kate Müller", age: 23, occupation: "Astronaut" },
   { type: "admin", name: "Bruce Willis", age: 64, role: "World saver" },
   { type: "user", name: "Wilson", age: 23, occupation: "Ball" },
-  { type: "admin", name: "Agent Smith", age: 23, role: "Anti-virus engineer" },
+  { type: "admin", name: "Agent Smith", age: 32, role: "Anti-virus engineer" },
 ];
 
 export function logPerson(person: Person) {
@@ -52,11 +52,11 @@ export function filterPersons(
     });
 }
 
-const usersOfAge23 = filterPersons(persons, "user", { age: 23 });
-// export const adminsOfAge23 = filterPersons(persons, 'admin', { age: 23 });
+// const usersOfAge23 = filterPersons(persons, "user", { age: 23 });
+const adminsOfAge32 = filterPersons(persons, "admin", { age: 32 });
 
-console.log("Users of age 23:");
-usersOfAge23.forEach(logPerson);
+console.log("Admins of age 32:");
+adminsOfAge32.forEach(logPerson);
 
 // console.log();
 
